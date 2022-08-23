@@ -1,0 +1,24 @@
+{% extends 'blogApp/padre.html' %}
+
+{% block titulo_pagina %}  
+
+<h1>MENSAJES</h1>
+{% endblock  %}
+
+{% block contenidoQueCambiara %}
+
+<div class="container mt-5">
+    <form method="post">
+        {% csrf_token %}
+        <h1 align="center">¿Seguro quieres borrar el mensaje {{object.title}}? </h1>
+        <div class="container mt-5" align="center">
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-ok"></span>Confirmar
+            </button>
+            <a href="{% url 'Messages' %}" class="btn btn-default">Cancelar</a>
+        </div>
+        <br></br>
+    </form>
+</div>
+
+{% endblock %}

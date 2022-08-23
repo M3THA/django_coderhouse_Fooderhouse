@@ -1,0 +1,48 @@
+{% extends 'blogApp/padre.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block titulo_pagina %}  
+
+<h1>MENSAJES</h1>
+{% endblock  %}
+
+{% block contenidoQueCambiara %}         
+
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="container mt-5">
+                {% if object_list %}
+                
+                {% for message in object_list %}
+                <div class="post-preview">
+                    <a href="{%url 'Message_detail' message.id%}">
+                        <p style="background-color: #9bdecc; color: black;" class="post-title">{{message.title}}</p>
+                    </a>
+                    <p class="post-meta">Mensaje Enviado por {{message.sender}} el {{message.date}}</p>
+                    <a href="{%url 'Message_detail' message.id%}">Leer</a> <br><br>
+                </div>
+                {% endfor %}
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="container mt-5">
+                        <a href="{% url 'New_message' %}" class="btn btn-primary">Nuevo mensaje</a>
+                        <a href="{% url 'inicio' %}" class="btn btn-default">Volver al inicio</a>
+                    </div>
+                </div>
+
+                {% else %}
+                <div class="container mt-5">
+                    <h2>No hay mensajes aún</h2>
+                    <a href="{% url 'New_message' %}" class="btn btn-primary">Nuevo mensaje</a>
+                    <p><a href="{% url 'inicio' %}" class="btn btn-default">Volver al inicio</a></p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<br></br>
+{% endblock  %}

@@ -1,0 +1,23 @@
+{% extends "blogApp/padre.html" %}
+
+
+{% load static %}
+
+
+
+
+{% block titulo_pagina %}
+<br></br>
+<h1> BORRAR POST</h1>
+<br></br>
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token  %}
+    <br></br>
+    <h4>¿Estás seguro?</h4>
+    <h4>Todos los datos se perderan y no podrán ser recuperados</h4>
+    <br></br>
+    <button class="btn btn-secondary">Borrar</button>
+    <br></br>
+
+</form>
+{% endblock %}

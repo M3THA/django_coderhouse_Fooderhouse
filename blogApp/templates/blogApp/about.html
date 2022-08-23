@@ -1,0 +1,71 @@
+{% extends "blogApp/padre.html" %}
+
+
+{% load static %}
+
+{% block titulo_pagina %}
+<h1 class="masthead-heading text-uppercase mb-0">about</h1>
+{% endblock %}
+
+{% block subtitulo %}
+    <p class="masthead-subheading font-weight-light mb-0">Sobre los creadores del Blog</p>
+{% endblock %}
+
+{% block contenidoQueCambiara %}
+
+<section class=" bg-primary text-white mb-0" id="about">
+    <div class="container">
+        
+            <div align="center">
+                
+                <img  src="{% static 'nico.jpg' %}" class="rounded-circle" style="max-width:250px;width:100%">
+            </div>
+            <br></br>
+        <!-- About Section Heading-->
+        <h4 class="page-section-heading text-center text-uppercase text-white">Nicolás</h4>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto"><p class="lead">Mi nombre es Nicolás González Farabollini, tengo 29 años y soy técnico en computación desde los 15 y diseñador audiovisual desde los 18. Actualmente me estoy formando como ingeniero DevOps.</p></div>
+            <div class="col-lg-4 me-auto"><p class="lead">Me caracterizo por mi necesidad y facilidad para resolver problemas. Me apasiona la tecnología computacional, el cine y la cultura general.</p></div>
+        </div>
+        <!-- About Section Button-->
+        
+    </div>
+    <br></br>
+    <div class="container">
+        <div align="center">
+                
+            <img  src="{% static 'ori.jpg' %}" class="rounded-circle" style="max-width:250px;width:100%">
+        </div>
+        <br></br>
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Oriana</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto"><p class="lead">Mi nombre es Oriana Ramirez, tengo 24 años, actualmente me estoy adentrando en el mundo de la programación.</p></div>
+            <div class="col-lg-4 me-auto"><p class="lead">Soy autodidacta, investigo sobre algo si no lo sé y me gustan los desafíos nuevos.</p></div>
+        </div>
+        <br></br>
+        <!-- About Section Button-->
+        <div class="w3-panel">
+            <div class="aligncenter w3-black">
+              
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

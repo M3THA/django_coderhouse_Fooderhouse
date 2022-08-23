@@ -1,0 +1,64 @@
+{% extends "blogApp/padre.html" %}
+
+{% load static %}
+
+{% block  titulo_pagina %}
+<h1>POST</h1>
+{% endblock %}
+
+{% block contenidoQueCambiara %}
+
+<main class="main-content">
+    <div class="section">
+        <div class="container"> 
+
+            <!--contenido titulo y subtitulo-->
+            <div class="text-center mt-8"> 
+                <br></br>
+                <h2>{{blog_post.titulo}}</h2>
+                
+                <!--Conversor de dato fecha en inglés al español-->
+                {% load i18n %}
+                {% language 'es' %}
+                <p>{{blog_post.fecha}}</p>
+                {% endlanguage %}
+
+            </div>      
+            
+           <!-- #contenido imagen-->
+           
+            <div class="text-center mt-8"> 
+            
+                <img src="{{blog_post.imagen.url}}" alt="" class="rounded-md ">
+               
+            </div>  
+            
+
+            <!-- #contenido cuerpo-->
+            <div class="post-content row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div> 
+                        {{blog_post.subtitulo|safe}}
+                    </div>
+                    <hr class="w-100px ">
+                    <div> 
+                        {{blog_post.cuerpo|safe}}
+                    </div>
+                    <div align="center">
+                        <form action="{% url 'like_post' blog_post.pk %}" method="POST">
+                            {% csrf_token  %}
+                            {% if user.is_authenticated %}
+                            <button type="submit", name="post_id", value="{{ blog_post.id }}", class="btn btn-primary">¡Like! (Total: {{ blog_post.total_likes }}) </button>
+                            {% endif %}
+                            <br></br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>  
+    </div>
+
+</main>
+
+{% endblock %}

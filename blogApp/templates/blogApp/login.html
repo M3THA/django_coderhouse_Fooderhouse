@@ -1,0 +1,60 @@
+{% extends "blogApp/padre.html" %}
+
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block titulo_pagina %}
+
+
+    <section  class="page-section portfolio" id="portfolio">
+        <div class="container">
+            
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-5">Login</h2>
+
+            <!--Formulario para login-->
+            <div class="container mt-5">
+                <form method="post">
+                    {% csrf_token %}
+            
+                    {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                    {% endfor %}
+            
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field|add_class:'form-control' }}
+                        {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+            
+                    <div class="container mt-5">
+                        <p>
+                            ¿No estás registradx?
+                            <a class="text-white" href="{% url 'registro' %}">Regístrate aquí</a>
+                        </p>
+                    </div>
+            
+                    <div class="container mt-5">
+                        <button type="submit" class="btn btn-secondary">
+                            <span class="glyphicon glyphicon-ok"></span>Iniciar sesión
+                        </button>
+                        <a href="{% url 'inicio' %}" class="btn btn-default">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+
+        
+        
+
+    
+        
+
+
+
+    </section>
+
+{% endblock %}

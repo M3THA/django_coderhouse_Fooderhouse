@@ -1,0 +1,12 @@
+
+{% if posteos.has_previous %}
+<a href="?page={{posteos.previous_page_number}}" class="btn btn-white"><i class="ti-arrow-left fs-9 mr-4"></i>Anterior</a>
+{% else %}
+<a href="#" class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-4"></i>Anterior</a>
+{% endif %}
+
+{% if posteos.has_next %}
+<a href="?page={{posteos.next_page_number}}" class="btn btn-white"><i class="ti-arrow-right fs-9 mr-4"></i>Siguiente</a>
+{% else %}
+<a href="#" class="btn btn-white disabled"><i class="ti-arrow-right fs-9 mr-4"></i>Siguiente</a>
+{% endif %}
